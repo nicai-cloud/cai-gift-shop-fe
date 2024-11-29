@@ -1,18 +1,18 @@
 import { Elements } from "@stripe/react-stripe-js";
 import Page, { FooterOutlet } from "../../components/page";
 import tailwindMerge from "../../utils/tailwind-merge";
-import { Outlet, useMatches, useNavigate } from "react-router-dom";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useMatches, useNavigate } from "react-router-dom";
+import { useCallback, useEffect, useRef } from "react";
 import { loadStripe, Stripe, StripeElementsOptions } from "@stripe/stripe-js";
 import InitialLoadingSpinner from "../../components/loading/initial-loading-spinner";
-import { PurchaseContext } from "./context";
+// import { PurchaseContext } from "./context";
 
 const FIRST_PAGE = '/select-gift'
 
 export default function Purchase() {
     const navigate = useNavigate();
     const matches = useMatches();
-    const [isLoading, setIsLoading] = useState(false);
+    // const [isLoading, setIsLoading] = useState(false);
 
     /** Track whether or not the user should be sent back to the start, e.g. if they refresh the page and lose all their state. */
     const hasInitiatedFlowAsExpected = useRef<boolean>();
@@ -51,8 +51,8 @@ export default function Purchase() {
         }
     }, [lastMatch, extractAnalyticsParamsAndNavigate]);
 
-    const context: PurchaseContext = {
-    };
+    // const context: PurchaseContext = {
+    // };
 
     const stripeElementsOptions: StripeElementsOptions = {
         fonts: [
@@ -74,15 +74,18 @@ export default function Purchase() {
                     <p>header goes here</p>
                 </div>
             </Page.Header>
-            <Page.Content className={tailwindMerge('px-4 py-10 flex justify-start items-center', isLoading && 'justify-center')}>
+            <Page.Content className={tailwindMerge('px-4 py-10 flex justify-start items-center')}>
                 <Elements stripe={getStripePromise()} options={stripeElementsOptions}>
-                    { isLoading
+                    <div className="flex place-items-center h-full">
+                        <InitialLoadingSpinner className="size-[7.5rem]" />
+                    </div>
+                    {/* { isLoading
                         ? (
-                                <div className="flex place-items-center h-full">
-                                    <InitialLoadingSpinner className="size-[7.5rem]" />
-                                </div>
+                            <div className="flex place-items-center h-full">
+                                <InitialLoadingSpinner className="size-[7.5rem]" />
+                            </div>
                             )
-                        : <Outlet context={context} />}
+                        : <Outlet context={context} />} */}
                 </Elements>
             </Page.Content>
             <Page.Footer

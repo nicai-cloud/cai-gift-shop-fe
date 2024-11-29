@@ -1,11 +1,11 @@
-import { usePurchaseContext } from './context';
+// import { usePurchaseContext } from './context';
 import Bag1 from '../../assets/images/bag1.jpeg';
 import Bag2 from '../../assets/images/bag2.jpeg';
 import Bag3 from '../../assets/images/bag3.jpeg';
 import { useState } from 'react';
 
 export default function SelectGift() {
-    const purchaseContext = usePurchaseContext();
+    // const purchaseContext = usePurchaseContext();
     const [bagIndex, setBagIndex] = useState<number>(-1);
 
     return (
