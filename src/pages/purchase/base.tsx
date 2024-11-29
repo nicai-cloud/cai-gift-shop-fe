@@ -1,11 +1,11 @@
 import { Elements } from "@stripe/react-stripe-js";
 import Page, { FooterOutlet } from "../../components/page";
 import tailwindMerge from "../../utils/tailwind-merge";
-import { useMatches, useNavigate } from "react-router-dom";
+import { Outlet, useMatches, useNavigate } from "react-router-dom";
 import { useCallback, useEffect, useRef } from "react";
 import { loadStripe, Stripe, StripeElementsOptions } from "@stripe/stripe-js";
-import InitialLoadingSpinner from "../../components/loading/initial-loading-spinner";
-// import { PurchaseContext } from "./context";
+// import InitialLoadingSpinner from "../../components/loading/initial-loading-spinner";
+import { PurchaseContext } from "./context";
 
 const FIRST_PAGE = '/select-gift'
 
@@ -51,8 +51,8 @@ export default function Purchase() {
         }
     }, [lastMatch, extractAnalyticsParamsAndNavigate]);
 
-    // const context: PurchaseContext = {
-    // };
+    const context: PurchaseContext = {
+    };
 
     const stripeElementsOptions: StripeElementsOptions = {
         fonts: [
@@ -76,9 +76,6 @@ export default function Purchase() {
             </Page.Header>
             <Page.Content className={tailwindMerge('px-4 py-10 flex justify-start items-center')}>
                 <Elements stripe={getStripePromise()} options={stripeElementsOptions}>
-                    <div className="flex place-items-center h-full">
-                        <InitialLoadingSpinner className="size-[7.5rem]" />
-                    </div>
                     {/* { isLoading
                         ? (
                             <div className="flex place-items-center h-full">
@@ -86,6 +83,7 @@ export default function Purchase() {
                             </div>
                             )
                         : <Outlet context={context} />} */}
+                    <Outlet context={context} />
                 </Elements>
             </Page.Content>
             <Page.Footer
