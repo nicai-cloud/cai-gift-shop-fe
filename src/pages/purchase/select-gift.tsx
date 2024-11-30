@@ -52,13 +52,20 @@ export default function SelectGift() {
         }
     }
 
+    const sendRequest = async () => {
+        // const response = await fetch('http://localhost:8000/hello');
+        const response = await fetch('http://127.0.0.1:8000/hello');
+        console.log('!!', await response.json());
+    }
+
     return (
         <div className="w-full">
             <h1 className="text-4xl font-bold mb-10 text-center">Choose your bag</h1>
             <div className="flex flex-row justify-between">
                 <img src={Bag1} alt="Bag1" className="mx-auto w-[161px] h-[124px]" onClick={() => setSelectedBag(0)} />
                 <img src={Bag2} alt="Bag2" className="mx-auto w-[161px] h-[124px]" onClick={() => setSelectedBag(1)}/>
-                <img src={Bag3} alt="Bag3" className="mx-auto w-[161px] h-[124px]" onClick={() => setSelectedBag(2)}/>
+                {/* <img src={Bag3} alt="Bag3" className="mx-auto w-[161px] h-[124px]" onClick={() => setSelectedBag(2)}/> */}
+                <img src={Bag3} alt="Bag3" className="mx-auto w-[161px] h-[124px]" onClick={sendRequest}/>
             </div>
             { selectedBag >= 0 && (
                 <div className="mt-20">
