@@ -19,11 +19,11 @@ export default function SelectGift() {
         setSelectedItems(items);
     }
 
-    const removeSelection = (itemIndex: number) => {
-        const items = structuredClone(selectedItems);
-        items.filter(item => item !== itemIndex);
-        setSelectedItems(items);
-    }
+    // const removeSelection = (itemIndex: number) => {
+    //     const items = structuredClone(selectedItems);
+    //     items.filter(item => item !== itemIndex);
+    //     setSelectedItems(items);
+    // }
 
     const getSelectedBag = (bagIndex: number) => {
         if (bagIndex == 0) {
