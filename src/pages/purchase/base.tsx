@@ -1,7 +1,7 @@
 import { Elements } from "@stripe/react-stripe-js";
 import Page, { FooterOutlet } from "../../components/page";
 import tailwindMerge from "../../utils/tailwind-merge";
-import { Outlet, useMatches, useNavigate } from "react-router-dom";
+import { Outlet, useLocation, useMatches, useNavigate } from "react-router-dom";
 import { useCallback, useEffect, useRef } from "react";
 import { loadStripe, Stripe, StripeElementsOptions } from "@stripe/stripe-js";
 // import InitialLoadingSpinner from "../../components/loading/initial-loading-spinner";
@@ -12,6 +12,7 @@ const FIRST_PAGE = '/select-gift'
 export default function Purchase() {
     const navigate = useNavigate();
     const matches = useMatches();
+    const location = useLocation();
     // const [isLoading, setIsLoading] = useState(false);
 
     /** Track whether or not the user should be sent back to the start, e.g. if they refresh the page and lose all their state. */
@@ -20,10 +21,8 @@ export default function Purchase() {
     const stripePromise = useRef<Promise<Stripe | null> | null>(null);
 
     const extractAnalyticsParamsAndNavigate = useCallback((destination: string) => {
-        const url = new URL(destination, window.location.href);
-        const currentParams = new URLSearchParams(url.search);
-
-        navigate({ pathname: url.pathname, search: currentParams.toString() });
+        const currentParams = new URLSearchParams(location.search);
+        navigate({ pathname: destination, search: currentParams.toString() });
     }, [navigate]);
 
     const getStripePromise = () => {
