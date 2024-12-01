@@ -53,7 +53,8 @@ export default function SelectGift() {
     }
 
     const sendRequest = async () => {
-        const response = await fetch('http://localhost:8080/health-check');
+        // const response = await fetch('http://localhost:8080/health-check');
+        const response = await fetch('http://192.168.178.146:8080/health-check');
         console.log('!!', await response.json());
     }
 
