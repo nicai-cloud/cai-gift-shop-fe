@@ -37,17 +37,22 @@ export default function Purchase() {
     const lastMatch = matches[matches.length - 1]!.pathname;
 
     useEffect(() => {
+        console.log('lastMatch', lastMatch)
         if (lastMatch == '/purchase/' || lastMatch == '/purchase') {
+            console.log('inside first')
             extractAnalyticsParamsAndNavigate(`.${FIRST_PAGE}`);
         }
         else if (lastMatch.endsWith(FIRST_PAGE)) {
+            console.log('inside second, ends with first page')
             hasInitiatedFlowAsExpected.current = true;
         }
         else if (!hasInitiatedFlowAsExpected.current) {
             // The user landed on this page without having started the flow properly, so send
             // them to the start.
+            console.log('inside third')
             extractAnalyticsParamsAndNavigate(`.${FIRST_PAGE}`);
         }
+        console.log('inside fourth')
     }, [lastMatch, extractAnalyticsParamsAndNavigate]);
 
     const context: PurchaseContext = {
