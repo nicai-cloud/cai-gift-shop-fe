@@ -58,7 +58,7 @@ export default function SelectGift() {
         // console.log('!!', await response.json());
 
         const query = '3 Drues Avenue'
-        const data = await fetch('http://192.168.178.44:8888/address/auto-complete', {
+        const data = await fetch(`${import.meta.env.VITE_GIFT_SHOP_API}/address/auto-complete`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

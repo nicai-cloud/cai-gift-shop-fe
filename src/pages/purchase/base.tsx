@@ -42,13 +42,14 @@ export default function Purchase() {
     const lastMatch = matches[matches.length - 1]!.pathname;
 
     useEffect(() => {
-        extractAnalyticsParamsAndNavigate(`.${CONFIRM_ORDER_PAGE}`);
-        // if (lastMatch == '/purchase/' || lastMatch == '/purchase') {
-        //     extractAnalyticsParamsAndNavigate(`.${FIRST_PAGE}`);
-        // }
-        // else if (lastMatch.endsWith(FIRST_PAGE)) {
-        //     hasInitiatedFlowAsExpected.current = true;
-        // }
+        // extractAnalyticsParamsAndNavigate(`.${CONFIRM_ORDER_PAGE}`);
+
+        if (lastMatch == '/purchase/' || lastMatch == '/purchase') {
+            extractAnalyticsParamsAndNavigate(`.${FIRST_PAGE}`);
+        }
+        else if (lastMatch.endsWith(FIRST_PAGE)) {
+            hasInitiatedFlowAsExpected.current = true;
+        }
         // else if (!hasInitiatedFlowAsExpected.current) {
         //     // The user landed on this page without having started the flow properly, so send
         //     // them to the start.
@@ -68,7 +69,7 @@ export default function Purchase() {
 
         let response;
         try {
-            response = await fetch('http://localhost:8888/complete-order', {
+            response = await fetch(`${import.meta.env.VITE_GIFT_SHOP_API}/complete-order`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
