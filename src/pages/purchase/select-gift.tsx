@@ -53,12 +53,12 @@ export default function SelectGift() {
     }
 
     const sendRequest = async () => {
-        // const response = await fetch('http://localhost:8080/health-check');
-        // const response = await fetch('http://192.168.178.44:8080/health-check');
+        // const response = await fetch('http://localhost:8888/health-check');
+        // const response = await fetch('http://192.168.178.44:8888/health-check');
         // console.log('!!', await response.json());
 
         const query = '3 Drues Avenue'
-        const data = await fetch('http://192.168.178.44:8080/address/auto-complete', {
+        const data = await fetch('http://192.168.178.44:8888/address/auto-complete', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -67,7 +67,7 @@ export default function SelectGift() {
         })
 
         const result = await data.json();
-        console.log('result', result);
+        console.log('result2', result);
     }
 
     return (

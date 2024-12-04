@@ -5,6 +5,7 @@ import App from './App.tsx'
 import Purchase from './pages/purchase'
 import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom'
 import SelectGift from './pages/purchase/select-gift.tsx'
+import ConfirmOrder from './pages/purchase/confirm-order.tsx'
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
           {
             path: 'select-gift',
             element: <SelectGift />,
+          },
+          {
+            path: 'confirm-order',
+            element: <ConfirmOrder />,
           }
         ]
       }
