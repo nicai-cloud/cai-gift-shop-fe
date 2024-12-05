@@ -1,4 +1,4 @@
-// import { usePurchaseContext } from './context';
+import { usePurchaseContext } from './context';
 import Bag1 from '../../assets/images/bag1.jpeg';
 import Bag2 from '../../assets/images/bag2.jpeg';
 import Bag3 from '../../assets/images/bag3.jpeg';
@@ -9,7 +9,7 @@ import item4 from '../../assets/images/item4.jpg';
 import { useState } from 'react';
 
 export default function SelectGift() {
-    // const purchaseContext = usePurchaseContext();
+    const purchaseContext = usePurchaseContext();
     const [selectedBag, setSelectedBag] = useState<number>(-1);
     const [selectedItems, setSelectedItems] = useState<number[]>([]);
 
@@ -75,7 +75,7 @@ export default function SelectGift() {
             <h1 className="text-4xl font-bold mb-10 text-center">Choose your bag</h1>
             <div className="flex flex-row justify-between">
                 <img src={Bag1} alt="Bag1" className="mx-auto w-[161px] h-[124px]" onClick={() => setSelectedBag(0)} />
-                <img src={Bag2} alt="Bag2" className="mx-auto w-[161px] h-[124px]" onClick={() => setSelectedBag(1)}/>
+                <img src={Bag2} alt="Bag2" className="mx-auto w-[161px] h-[124px]" onClick={() => purchaseContext.submitGift()}/>
                 {/* <img src={Bag3} alt="Bag3" className="mx-auto w-[161px] h-[124px]" onClick={() => setSelectedBag(2)}/> */}
                 <img src={Bag3} alt="Bag3" className="mx-auto w-[161px] h-[124px]" onClick={sendRequest}/>
             </div>

@@ -9,6 +9,7 @@ export type OrderDetails = {
 
 export type PurchaseContext = {
     orderDetails: Readonly<OrderDetails>;
+    submitGift: () => void;
     submitCompleteOrder: (details: any) => Promise<SubmissionError | null>;
 };
 

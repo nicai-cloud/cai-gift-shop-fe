@@ -41,6 +41,10 @@ export default function Purchase() {
 
     const lastMatch = matches[matches.length - 1]!.pathname;
 
+    const submitGift = () => {
+        extractAnalyticsParamsAndNavigate('./confirm-order');
+    };
+
     useEffect(() => {
         // extractAnalyticsParamsAndNavigate(`.${CONFIRM_ORDER_PAGE}`);
 
@@ -112,6 +116,7 @@ export default function Purchase() {
 
     const context: PurchaseContext = {
         orderDetails,
+        submitGift,
         submitCompleteOrder
     };
 
