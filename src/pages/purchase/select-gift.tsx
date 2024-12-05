@@ -87,6 +87,20 @@ export default function SelectGift() {
                 </Button>
             </div>
             <br />
+            <div className="w-full h-16 bg-pink-500 flex items-center justify-center">
+                <p className="text-white text-center">
+                    GIRLS GIFTS
+                </p>
+            </div>
+            <div>
+                <p>girls items go here</p>
+            </div>
+            <div className="w-full flex justify-center">
+                <Button className="bg-black text-white p-4 rounded-lg">
+                    View all
+                </Button>
+            </div>
+            <br />
 
             <h1 className="text-4xl font-bold mb-10 text-center">Choose your bag</h1>
             <div className="flex flex-row justify-between">
