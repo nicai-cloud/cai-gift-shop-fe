@@ -7,6 +7,7 @@ import item2 from '../../assets/images/item2.jpg';
 import item3 from '../../assets/images/item3.jpg';
 import item4 from '../../assets/images/item4.jpg';
 import { useState } from 'react';
+import { Button } from '@headlessui/react';
 
 export default function SelectGift() {
     const purchaseContext = usePurchaseContext();
@@ -72,6 +73,21 @@ export default function SelectGift() {
 
     return (
         <div className="w-full">
+            <div className="w-full h-16 bg-blue-500 flex items-center justify-center">
+                <p className="text-white text-center">
+                    BOYS GIFTS
+                </p>
+            </div>
+            <div>
+                <p>boys items go here</p>
+            </div>
+            <div className="w-full flex justify-center">
+                <Button className="bg-black text-white p-4 rounded-lg">
+                    View all
+                </Button>
+            </div>
+            <br />
+
             <h1 className="text-4xl font-bold mb-10 text-center">Choose your bag</h1>
             <div className="flex flex-row justify-between">
                 <img src={Bag1} alt="Bag1" className="mx-auto w-[161px] h-[124px]" onClick={() => setSelectedBag(0)} />
