@@ -84,7 +84,7 @@ export default function Purchase() {
                     mobile: finalPageDetails?.mobile,
                     email: finalPageDetails?.email,
                     payment_method_id: finalPageDetails?.paymentMethodId,
-                    address: snakeCaseAddress,
+                    // address: snakeCaseAddress,
                 }),
             });
         }
