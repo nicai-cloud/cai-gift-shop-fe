@@ -1,5 +1,4 @@
-import { AsyncAutocompleteOption } from '../../components/input/async-autocomplete';
-import { DropdownOption } from '../../components/input/dropdown';
+// import { AsyncAutocompleteOption } from '../../components/input/async-autocomplete';
 
 export type NoNullFields<T> = {
     [K in keyof T]: T[K] extends object ? NoNullFields<T[K]> : NonNullable<T[K]>
@@ -22,16 +21,11 @@ export type ConfirmOrderDetailsForm = {
     // Parent Details
     firstName: string;
     lastName: string;
-    dateOfBirth: {
-        day: DropdownOption<number> | null;
-        month: DropdownOption<number> | null;
-        year: DropdownOption<number> | null;
-    };
     mobile: string;
     email: string;
 
     // Address
-    address: AsyncAutocompleteOption<Address> | null;
+    // address: AsyncAutocompleteOption<Address> | null;
 
     // Payments
     nameOnCard: string;
@@ -41,7 +35,4 @@ export type ConfirmOrderDetailsForm = {
         month: number;
         year: number;
     };
-
-    // Terms
-    agreeToTerms: boolean;
 };

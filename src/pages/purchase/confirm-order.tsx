@@ -5,11 +5,11 @@ import Divider from '../../components/divider';
 import { FormProvider, useForm } from 'react-hook-form';
 import ErrorPanel from '../../components/error-panel';
 import TextField from '../../components/input/text-field';
-import AsyncAutocomplete, { AsyncAutocompleteOption } from '../../components/input/async-autocomplete';
+// import AsyncAutocomplete, { AsyncAutocompleteOption } from '../../components/input/async-autocomplete';
 import { CardCvcElement, CardExpiryElement, CardNumberElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import { StripeElementChangeEvent, StripeElementStyle } from '@stripe/stripe-js';
 import StripeFieldWrapper from '../../components/stripe-field-wrapper';
-import { Address, ConfirmOrderDetailsForm } from './types';
+import { ConfirmOrderDetailsForm } from './types';
 import { usePurchaseContext } from './context';
 import { Button } from '@headlessui/react';
 
@@ -67,11 +67,9 @@ export default function ConfirmOrder() {
             email: '',
             mobile: '',
 
-            address: null,
+            // address: null,
 
             nameOnCard: '',
-
-            agreeToTerms: false,
         },
     });
 
@@ -115,7 +113,7 @@ export default function ConfirmOrder() {
             mobile: data.mobile,
             email: data.email,
 
-            address: data.address?.value,
+            // address: data.address?.value,
 
             paymentMethodId: paymentMethodResult.paymentMethod.id,
         });

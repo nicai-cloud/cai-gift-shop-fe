@@ -8,7 +8,7 @@ import { loadStripe, Stripe, StripeElementsOptions } from "@stripe/stripe-js";
 import { OrderDetails, PurchaseContext } from "./context";
 
 const FIRST_PAGE = '/select-gift'
-const CONFIRM_ORDER_PAGE = '/confirm-order'
+// const CONFIRM_ORDER_PAGE = '/confirm-order'
 
 export default function Purchase() {
     const navigate = useNavigate();
