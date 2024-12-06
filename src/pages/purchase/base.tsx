@@ -7,7 +7,7 @@ import { loadStripe, Stripe, StripeElementsOptions } from "@stripe/stripe-js";
 // import InitialLoadingSpinner from "../../components/loading/initial-loading-spinner";
 import { OrderDetails, PurchaseContext } from "./context";
 
-const FIRST_PAGE = '/select-gift'
+const FIRST_PAGE = '/select-option'
 // const CONFIRM_ORDER_PAGE = '/confirm-order'
 
 export default function Purchase() {
@@ -43,6 +43,14 @@ export default function Purchase() {
 
     const submitGift = () => {
         extractAnalyticsParamsAndNavigate('./confirm-order');
+    };
+
+    const choosePreselectGifts = () => {
+        extractAnalyticsParamsAndNavigate('./select-gift');
+    };
+
+    const chooseCustomGifts = () => {
+        extractAnalyticsParamsAndNavigate('./select-gift');
     };
 
     useEffect(() => {
@@ -116,6 +124,8 @@ export default function Purchase() {
 
     const context: PurchaseContext = {
         orderDetails,
+        choosePreselectGifts,
+        chooseCustomGifts,
         submitGift,
         submitCompleteOrder
     };

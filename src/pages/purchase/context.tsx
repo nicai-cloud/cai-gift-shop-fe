@@ -10,6 +10,8 @@ export type OrderDetails = {
 export type PurchaseContext = {
     orderDetails: Readonly<OrderDetails>;
     submitGift: () => void;
+    choosePreselectGifts: () => void;
+    chooseCustomGifts: () => void;
     submitCompleteOrder: (details: any) => Promise<SubmissionError | null>;
 };
 
