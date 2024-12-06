@@ -6,6 +6,10 @@ import item1 from '../../assets/images/item1.png';
 import item2 from '../../assets/images/item2.jpg';
 import item3 from '../../assets/images/item3.jpg';
 import item4 from '../../assets/images/item4.jpg';
+import Airplane from '../../assets/images/boys/airplane.jpg';
+import Car from '../../assets/images/boys/car.jpg';
+import Scooter from '../../assets/images/boys/scooter.jpg';
+import Submarine from '../../assets/images/boys/submarine.jpg';
 import { useState } from 'react';
 import { Button } from '@headlessui/react';
 
@@ -73,7 +77,7 @@ export default function SelectGift() {
 
     return (
         <div className="w-full">
-            <div className="w-full h-16 bg-blue-500 flex items-center justify-center">
+            <div className="w-full h-16 bg-blue-400 flex items-center justify-center">
                 <p className="text-white text-center">
                     BOYS GIFTS
                 </p>
@@ -81,13 +85,19 @@ export default function SelectGift() {
             <div>
                 <p>boys items go here</p>
             </div>
-            <div className="w-full flex justify-center">
+            <div className="flex flex-row justify-between">
+                <img src={Airplane} alt="Bag1" className="mx-auto w-[161px] h-[124px]" />
+                <img src={Car} alt="Bag1" className="mx-auto w-[161px] h-[124px]" />
+                <img src={Scooter} alt="Bag1" className="mx-auto w-[161px] h-[124px]" />
+                <img src={Submarine} alt="Bag1" className="mx-auto w-[161px] h-[124px]" />
+            </div>
+            <div className="w-full flex justify-center mt-10">
                 <Button className="bg-black text-white p-4 rounded-lg">
                     View all
                 </Button>
             </div>
             <br />
-            <div className="w-full h-16 bg-pink-500 flex items-center justify-center">
+            <div className="w-full h-16 bg-pink-300 flex items-center justify-center">
                 <p className="text-white text-center">
                     GIRLS GIFTS
                 </p>
